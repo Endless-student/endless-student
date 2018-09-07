@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+
+<body>
+<div class="Nav">
+<a href="{% url 'homepage' %}"><h1>My Site</h1></a>
+<div class="account">
+	{% if user.is_authenticated %}
+	{% firstof user.get_short_name user.get_username %}
+	{% else %} 
+	<a href="{% url 'login' %}"> Login </a>   
+ 	{% endif %}
+</div>
+<div class="round_menu">
+<a href="{% url 'about' %}">
+<div class="menu">
+<p> About</p>
+</div>
+</a>
+<a href="{% url 'gallery' %}">
+<div class="menu">
+<p> Gallery </p>
+</div>
+</a>
+<a href="{% url 'story' %}">
+<div class="menu">
+<p> Story </p>
+</div>
+</a>
+</div>
+</div>
+
+<div class="baka">
+{% block content %}
+<div class="main"> 
+<h2> About This Site </h2>
+<p> Just A Simple Website Made By A Student Ba	sed On Django FrameWork </p>
+<hr>
+</div>	
+
+<div class="thank">
+
+<p> Here Are Some References I Used To Build This Site </P>
+<p style="font-weight: bold">Thanks To : </p>
+<ul>
+<li><a href="www.django.org"> Django Framework </a></li>
+
+<li><a href="https://tutorial.djangogirls.org"> Django Girl Tutorial </a></li>
+
+<li><a href="https://simpleisbetterthancomplex.com/"> simpleisbetterthancomplex.com </a></li>
+
+<li><a href="https://codepen.io/"> CodePen.io</a></li>
+
+<li><a href="https://www.tutorialspoint.com/"> Django Framework </a></li>
+
+<li><a href="https://github.com/"> Github </a></li>
+
+<li><a href="https://www.w3schools.com/"> w3schools.com </a></li>
+
+<li> And Much More Others Sites That I Didn't Show Here </li>
+</ul>
+
+<p style="text-align: center; padding-top: 100px; margin: auto; font-size: 20px;"> And Special Thanks To <b> My Beloved Sister " Zahirah "</b> ( Although Not My sibling ) For Inspired And Motivated Me Always </p>
+
+
+
+
+</div>
+{% endblock %}
+</div>
+</body>
+</html>
+

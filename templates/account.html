@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<title>{% block title %}{% firstof user.get_short_name user.get_username %}{% endblock %} </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+</head>
+<body>
+
+<div class="Nav">
+<a href="{% url 'homepage' %}"><h1>My Site</h1></a>
+<div class="round_menu">
+<a href="{% url 'about' %}"><div class="menu"><p> About</p></div></a>
+<a href="{% url 'gallery' %}"><div class="menu"><p> Gallery </p></div></a>
+<a href="{% url 'story' %}"><div class="menu"><p> Story </p></div></a>
+</div>
+</div>
+
+{% block content %}
+<div class="main">
+	<div class="main_main"><div class="pro_pic"></div></div>
+	<div class="main_main"><div class="name">{{ user.get_username }}</div></div><br><br>
+	<div class="main_main"><div class="desc"> I Am Not A Robot </div></div>
+	<br><hr>
+	<p> My Favourite Quote : </p>
+	<div class="fav_quote"> I Am Not A Robot </div>
+
+</div>	
+
+<!--
+{% for post in posts %}
+ <div class="story">
+ <h3><a href={% url 'story_detail' pk=post.pk %}>{{ post.title }}</a></h3>
+
+	{% if user.is_authenticated %}
+	<a class="edit_btn" href="{% url 'edit_story' pk=post.pk %}"><span>Edit</span></a>
+	{% endif %}
+
+	{% if post.posted_date %}
+        <div class="date">  On {{ post.posted_date }} </div>
+        {% endif %}
+        <p>{{ post.text|linebreaksbr }}</p>
+ </div>
+{% endfor %}
+-->
+
+{% endblock %}
+</body>
+</html>

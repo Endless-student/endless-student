@@ -1,0 +1,41 @@
+{% extends 'homepage.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login">
+<h2>Login</h2>
+{% if user.is_authenticated %}
+<h3> You Are Already Logged In </h3>
+<p> ^_^ </p>
+{% else %} 
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endif %}
+</div>
+
+<div class="Nav">
+<a href="{% url 'homepage' %}"><h1>My Site</h1></a>
+<div class="round_menu">
+<a href="{% url 'about' %}">
+<div class="menu">
+<p> About</p>
+</div>
+</a>
+<a href="{% url 'gallery' %}">
+<div class="menu">
+<p> Gallery </p>
+</div>
+</a>
+<a href="{% url 'story' %}">
+<div class="menu">
+<p> Story </p>
+</div>
+</a>
+</div>
+</div>
+
+{% endblock %}

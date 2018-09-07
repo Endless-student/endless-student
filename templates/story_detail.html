@@ -1,0 +1,13 @@
+{% extends 'story.html' %}
+
+{% block content %}
+<a href="{% url 'story' %}"> <h2>Stories</h2></a>
+    <div class="story_detail">
+        <h3>{{ post.title }}</h3>
+            <div class="date">
+                <p> posted at {{ post.posted_date }}<br> By : {{ post.writer }}  </p>
+            </div>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+
+{% endblock %}

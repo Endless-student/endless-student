@@ -1,0 +1,74 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<title>{% block title %} {{ Post.User }}{% endblock %} </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+{% block content %}
+<div class="main">
+ <div class="main_center">
+   <h3>Welcome to My Site</h3>
+       <div class="quote"> Be Yourself !</div>
+	<div class="quote"> Be Happy !</div>
+ </div>
+</div>
+ <p class=" launch_date"> launched On 1 Muharram 1440 </p>
+<div class="Nav">
+<a href="{% url 'homepage' %}"><h1>My Site</h1></a>
+
+<div class="account">
+	{% if user.is_authenticated %}
+ 	{% firstof user.get_short_name user.get_username %}
+	{% else %} 
+	<a href="{% url 'login' %}"> Login </a>   
+ 	{% endif %}
+</div>
+<div class="round_menu">
+<a href="{% url 'about' %}"><div class="menu"><p> About</p></div></a>
+<a href="{% url 'gallery' %}"><div class="menu"><p> Gallery </p></div></a>
+<a href="{% url 'story' %}"><div class="menu"><p> Story </p></div></a>
+</div>
+</div>
+
+<div class="about">
+<div class="about_main">
+<h2><a href="{% url 'about' %}"> About This Site </a></h2><br>
+<div class="about_text">
+ Just A Site Made By A Student Based On Django FrameWork 
+</div></div>
+</div>
+<div class="footer">
+<p> Be Happy And Don't Forget To Enjoy Your Life ! ^_^ </p>
+</div>
+
+
+                                                      
+{% endblock %}
+
+</body>
+</html>
+
+
+<!--<div class="story">
+<div class="story_main">
+<div class="story_center">
+<p>Find Incredible <a href="{% url 'story' %}"> STORY </a><br> Or <a href="{% url 'new_story' %}"> Create </a> Your Own Story </p>
+</div>I]YTG
+</div>
+</div>
+<div class="gallery">
+<div class="gallery_main">
+<div class="gallery_logo">
+ GIve Me A logo !
+</div>
+<div class="gallery_center">
+ Describe Me !
+</div>
+</div>	
+</div>
+-->

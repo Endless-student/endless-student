@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/web.css' %}">
+</head>
+
+<body>
+<div class="Nav">
+<a href="{% url 'homepage' %}"><h1>My Site</h1></a>
+<div class="round_menu">
+<a href="{% url 'about' %}">
+<div class="menu">
+<p> About</p>
+</div>
+</a>
+<a href="{% url 'gallery' %}">
+<div class="menu">
+<p> Gallery </p>
+</div>
+</a>
+<a href="{% url 'story' %}">
+<div class="menu">
+<p> Story </p>
+</div>
+</a>
+</div>
+</div>
+
+<div class="baka">
+{% block content %}	
+{% endblock %}
+</div>
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+{% extends 'story.html' %}
+
+{% block content %}
+<a href="{% url 'story' %}">
+<h2>Stories</h2>
+</a>
+<form method="POST" >
+{% csrf_token %}
+{{ form.as_p }}
+{% include 'django/forms/widgets/textarea.html' %}
+<button type="submit" > Save </button>
+</form>
+
+{% endblock %}

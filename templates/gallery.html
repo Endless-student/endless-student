@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+</head>
+
+<body>
+<div class="Nav">
+<a href="{% url 'homepage' %}"><h1>My Site</h1></a>
+<div class="account">
+	{% if user.is_authenticated %}
+	{% firstof user.get_short_name user.get_username %}
+	{% else %} 
+	<a href="{% url 'login' %}"> Login </a>   
+ 	{% endif %}
+</div>
+<div class="round_menu">
+<a href="{% url 'about' %}">
+<div class="menu">
+<p> About</p>
+</div>
+</a>
+<a href="{% url 'gallery' %}">
+<div class="menu">
+<p> Gallery </p>
+</div>
+</a>
+<a href="{% url 'story' %}">
+<div class="menu">
+<p> Story </p>
+</div>
+</a>
+</div>
+</div>
+
+{% block content %}	
+<div class="baka">
+<h2> Gallery </h2>
+<hr>
+<div class="Pictures">
+<img src="{% static '/images/background0.jpg' %}">
+</div>
+<div class="Pictures">
+<img src="{% static '/images/background0.jpg' %}">
+</div>
+<div class="Pictures">
+<img src="{% static '/images/background0.jpg' %}">
+</div>
+<div class="Pictures">
+<img src="{% static '/images/background0.jpg' %}">
+</div>
+<div class="Pictures">
+<img src="{% static '/images/background0.jpg' %}">
+</div>
+<div class="Pictures">
+<img src="{% static '/images/background0.jpg' %}">
+</div>
+</div>
+{% endblock %}
+
+</body>
+</html>
+
